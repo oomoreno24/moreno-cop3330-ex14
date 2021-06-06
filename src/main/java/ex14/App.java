@@ -37,8 +37,30 @@ Challenges
 Allow the user to enter a state abbreviation in upper, lower, or mixed case.
 Also allow the user to enter the state’s full name in upper, lower, or mixed case.
  */
+
 public class App {
     public static void main(String[] args) {
-        
+        Scanner in = new Scanner(System.in);
+        System.out.print("What is the order amount? ");
+        String orderAmount = in.nextLine();
+        System.out.print("What is the state? ");
+        String state = in.nextLine();
+
+        // converting order amount to float
+        float order = Float.parseFloat(orderAmount);
+
+        // calculations
+        float tax = (float) (0.055 * order);
+        float total = order;
+
+        // if statement
+        if (state.equals("WI")) {
+            total = order+tax;
+            // output
+            System.out.printf("The subtotal is $%.2f.\nThe tax is $%.2f.\n", order, tax);
+        }
+
+        //output
+        System.out.printf("The total is $%.2f.\n", total);
     }
 }
